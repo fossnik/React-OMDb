@@ -35,7 +35,26 @@ class List extends React.Component {
 		if (this.state.loading)
 			return <div>Loading...</div>;
 
-		return ""
+		let html = "";
+		if (this.state.result != null)
+			html += this.state.result["Actors"];
+
+			// return (
+			// 	<div>
+			// 		{this.state.result.map(object => (
+			// 			<div>{object.id}</div>
+			// 		))}
+			// 	</div>
+			// )
+			// for (let a in this.state.result.Title) {
+			// 	// html +=
+			// 	// 	<dt>{a}</dt>;
+			//
+			// 	html +=
+			// 		<dd>{{a}}</dd>;
+			// }
+
+		return html;//`<dl>${html}</dl>`;
 	}
 }
 
