@@ -37,17 +37,28 @@ class List extends React.Component {
 		else if (this.state.result == null)
 			return "";
 		else
-			return (
-				<div>
-				<h3>{this.state.result.Title}</h3>
-					<dl>
-						<dt>Year</dt><dd>{this.state.result.Year}</dd>
-						<dt>Actors</dt><dd>{this.state.result.Actors}</dd>
-						<dt>Runtime</dt><dd>{this.state.result.Runtime}</dd>
-						<dt>Rating</dt><dd>{this.state.result.Rated}</dd>
-					</dl>
-				</div>
-			)
+			// return (
+			// 	<div>
+			// 	<h3>{this.state.result.Title}</h3>
+			// 		<dl>
+			// 			<dt>Year</dt><dd>{this.state.result.Year}</dd>
+			// 			<dt>Actors</dt><dd>{this.state.result.Actors}</dd>
+			// 			<dt>Runtime</dt><dd>{this.state.result.Runtime}</dd>
+			// 			<dt>Rating</dt><dd>{this.state.result.Rated}</dd>
+			// 		</dl>
+			// 	</div>
+			// )
+		{
+			let rows = [];
+			for (let a in this.state.result) {
+				rows.push(
+					<dt>{a}</dt>,
+					<dd>{this.state.result[a].toString()}</dd>
+				)
+			}
+			return <dl>{rows}</dl>;
+		}
+
 	}
 }
 
